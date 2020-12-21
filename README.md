@@ -1,5 +1,5 @@
 # weather
-weather web page
+Weather web page
 
 Projeto de uma web page para consulta climatica consultando uma API gratuita https://www.weatherapi.com/;
 
