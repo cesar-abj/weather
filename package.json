@@ -1,0 +1,28 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "Pagina para consulta climatica;",
+  "main": "index.js",
+  "author": "cesar-abj",
+  "license": "MIT",
+  "devDependencies": {
+    "@sucrase/gulp-plugin": "^2.0.0",
+    "@types/autoprefixer": "^9.7.2",
+    "@types/browser-sync": "^2.26.1",
+    "@types/gulp": "^4.0.7",
+    "@types/gulp-htmlmin": "^1.3.32",
+    "@types/gulp-postcss": "^8.0.0",
+    "@types/gulp-terser": "^1.2.1",
+    "@types/node": "^14.14.14",
+    "autoprefixer": "^10.1.0",
+    "browser-sync": "^2.26.13",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-terser": "^2.0.0",
+    "postcss": "^8.2.1",
+    "sucrase": "^3.16.0",
+    "typescript": "^4.1.3"
+  }
+}
