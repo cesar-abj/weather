@@ -22,7 +22,7 @@ const compiledTsDest = './src/js/'
 const jsPath = './src/js/*.js'
 const cssPath = './src/css/*.css'
 // const imgPath = './src/assets/img/'
-const htmlPath = './src/html/*.html'
+const htmlPath = './src/*.html'
 
 const jsBuildDest = './dist/js/'
 const htmlBuildDest = './dist/'
@@ -51,7 +51,7 @@ const cssTask = async () =>
 const watchTask = () => {
   bs.init({
     server: {
-      baseDir: './dist/'
+      baseDir: './src/'
     }
   })
 
