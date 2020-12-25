@@ -1,2 +1,3 @@
 let a = 'string'
-console.log(a);
+let b = 'outra string'
+console.log(b);

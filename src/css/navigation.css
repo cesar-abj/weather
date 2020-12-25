@@ -1,0 +1,45 @@
+.navigation{
+  grid-area: navigation;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-home-link{
+  text-decoration: unset;
+  color: black;
+}
+
+.container-nav{
+  display: flex;
+  align-items: center;
+}
+
+.nav-image{
+  height: 5rem;
+  width: 5rem;
+  background-position: center;
+  background-image: url(../assets/img/nuvem.png);
+  background-repeat: no-repeat;
+}
+
+.nav-title{
+  padding-left: 1rem;
+}
+
+.container-search{
+  display: flex;
+  align-items: center;
+}
+
+.nav-search-input{
+  width: 249px;
+  height: 40px;
+  border-radius: 20px;
+  background-image: url(../assets/img/searche.png);
+  background-repeat: no-repeat;
+  background-position: 95%;
+  border: 1px solid #2476ED;
+  padding-left: 1rem;
+  font-size: 24px;
+  outline-style: none;
+}

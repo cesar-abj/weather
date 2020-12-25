@@ -4,25 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="style" href="../css/index.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/navigation.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/division.css">
+  <link rel="stylesheet" href="./css/aside.css">
+  <link rel="stylesheet" href="./css/footer.css">
   <title>Weather - ABJ</title>
 </head>
 
-<body>
-  <nav>
-    <div class="container-nav">
-      <i class="nav-icon"></i>
-      <h1>Weather - Abj</h1>
-    </div>
+<body class="body">
+  <nav class="navigation">
+    <a href="#" class="nav-home-link">
+      <div class="container-nav">
+        <i class="nav-image"></i>
+        <h1 class="nav-title">Weather - Abj</h1>
+      </div>
+    </a>
     <div class="container-search">
-      <input type="search" class="nav-search-input">
-      <i class="nav-icon-input"></i>
+      <form action="#" method="GET" class="nav-form">
+        <input id="search" class="nav-search-input">
+      </form>
     </div>
   </nav>
 
-  <span class="division-bar"></span>
-
-  <main>
+  <main class="main">
     <section class="container-day">
       <h3 class="day-title">Previsão para os proximos dias</h3>
       <div class="day-div">
@@ -75,7 +81,55 @@
         </span>
       </div>
     </section>
+    <section class="list-info-weather">
+      <table class="aside-table">
+        <tbody class="aside-table-body">
+          <tr class="aside-table-row-title">
+            <td class="aside-table-data">Max./Min.</td>
+            <td class="aside-table-data">Umidade do ar</td>
+            <td class="aside-table-data">Indice UV</td>
+            <td class="aside-table-data">Pressão atm</td>
+          </tr>
+          <tr>
+            <td class="aside-table-row-content">--/14°</td>
+            <td class="aside-table-data">94%</td>
+            <td class="aside-table-data">6.0</td>
+            <td class="aside-table-data">1015,0 mb</td>
+          </tr>
+          <tr class="aside-table-row-title">
+            <td class="aside-table-data">Vel. vento</td>
+            <td class="aside-table-data">Visibilidade</td>
+            <td class="aside-table-data">Fase da Lua</td>
+            <td class="aside-table-data">Lat./Long.</td>
+          </tr>
+          <tr class="aside-table-row-content">
+            <td class="aside-table-data">8.1 km</td>
+            <td class="aside-table-data">10.0 km</td>
+            <td class="aside-table-data">Lua crescente</td>
+            <td class="aside-table-data">-19.67 / -43.92</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </main>
+
+  <section class="division-bar cold-division-color"></section>
+
+  <aside>
+    <section>
+      <h2 class="aside-title">Vespasiano, MG</h2>
+      <span class="aside-date">19/12/2020</span>
+      <span class="aside-hour">22:01</span>
+      <span class="aside-greeting">Boa Noite!</span>
+      <p>Clima hoje em Vespasiano, Minas Gerais</p>
+      <span class="aside-temperature">22°</span>
+      <p class="aside-weather-description">Parcialmente nublado</p>
+      <p class="aside-clouds">Percentual de nuvens no céu</p>
+    </section>
+  </aside>
+  <footer class="footer">
+    <p class="footer-paragraph">Code & design by Cesar-abj</p>
+  </footer>
 </body>
 <script src="../js/index.js"></script>
 

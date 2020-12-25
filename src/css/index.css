@@ -5,6 +5,14 @@
   padding: 0px;
 }
 
-nav{
-  background-color: bisque;
+.body{
+  max-width: 1920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 60% 40px 36%;
+  height: 97vh;
+  grid-template-rows: 10% 90%;
+  grid-template-areas: "navigation division aside"
+                       "main division aside"
+                       "main division footer";
 }
