@@ -7,6 +7,33 @@
   row-gap: 4%;
 }
 
+.grid-template-5{
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+}
+
+.title-cards{
+  display: block;
+  padding: 1rem 0 .5rem 1.5rem;
+  font-size: 1.7rem;
+}
+
+.day-list-item > .day-list-item-icon,
+.hour-list-item > .hour-list-item-icon
+{
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.day-list-item,
+.hour-list-item{
+  display: grid;
+  justify-items: center;
+  font-size: 1.5rem;
+}
+
 /* style for cards */
 
 .card{
@@ -20,21 +47,7 @@
 /* start first card day weather */
 
 .day-list{
-  display: grid;
-  grid-template-columns: repeat(5, 20%);
   grid-template-areas: "a b c d e";
-}
-
-.day-title{
-  display: block;
-  padding: 1rem 0 .5rem 1.5rem;
-  font-size: 1.7rem;
-}
-
-.day-list-item{
-  display: grid;
-  justify-items: center;
-  font-size: 1.5rem;
 }
 
 .day-list-item.a {
@@ -43,10 +56,6 @@
 
 .day-list-item.a > .day-list-item-icon{
   background-image: url(../assets/img/day/113.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3.5rem;
-  height: 3.5rem;
 }
 
 .day-list-item.b{
@@ -55,10 +64,6 @@
 
 .day-list-item.b > .day-list-item-icon{
   background-image: url(../assets/img/day/116.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3.5rem;
-  height: 3.5rem;
 }
 
 .day-list-item.c{
@@ -67,10 +72,6 @@
 
 .day-list-item.c > .day-list-item-icon{
   background-image: url(../assets/img/day/119.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3.5rem;
-  height: 3.5rem;
 }
 
 .day-list-item.d{
@@ -79,10 +80,6 @@
 
 .day-list-item.d > .day-list-item-icon{
   background-image: url(../assets/img/day/182.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3.5rem;
-  height: 3.5rem;
 }
 
 .day-list-item.e{
@@ -91,35 +88,19 @@
 
 .day-list-item.e > .day-list-item-icon{
   background-image: url(../assets/img/day/302.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3.5rem;
-  height: 3.5rem;
 }
 
 /* end first card day weather*/
 
 /* second card hour weather*/
 
-.hour-title{
-  display: block;
-  font-size: 1.7rem;
-  padding: 1rem 0 .5rem 1.5rem;
-}
-
 .hour-list{
-  display: grid;
-  grid-template-columns: repeat(5, 20%);
   grid-template-areas: "ba bb bc bd be";
 }
 
-.hour-list-item{
-  display: grid;
-  justify-items: center;
-  font-size: 1.5rem;
-}
 
 .hour-list-item-paragraph{
+  padding: .5rem 0 .2rem 0;
   font-size: 1.5rem;
 }
 
@@ -128,10 +109,6 @@
 }
 .hour-list-item.ba > .hour-list-item-icon{
   background-image: url(../assets/img/day/395.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3.5rem;
-  height: 3.5rem;
 }
 
 .hour-list-item.bb{
@@ -139,10 +116,6 @@
 }
 .hour-list-item.bb > .hour-list-item-icon{
   background-image: url(../assets/img/day/386.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3.5rem;
-  height: 3.5rem;
 }
 
 .hour-list-item.bc{
@@ -150,10 +123,6 @@
 }
 .hour-list-item.bc > .hour-list-item-icon{
   background-image: url(../assets/img/day/365.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3.5rem;
-  height: 3.5rem;
 }
 
 .hour-list-item.bd{
@@ -161,10 +130,6 @@
 }
 .hour-list-item.bd > .hour-list-item-icon{
   background-image: url(../assets/img/day/335.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3.5rem;
-  height: 3.5rem;
 }
 
 .hour-list-item.be{
@@ -172,8 +137,6 @@
 }
 .hour-list-item.be > .hour-list-item-icon{
   background-image: url(../assets/img/day/317.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 3.5rem;
-  height: 3.5rem;
 }
+
+/* end second card hour weather */
