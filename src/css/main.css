@@ -3,7 +3,7 @@
 .main{
   grid-area: main;
   display: grid;
-  grid-template-rows: repeat(4, 21.5%);
+  grid-template-rows: repeat(4, 21%);
   row-gap: 4%;
 }
 
@@ -17,7 +17,7 @@
   box-shadow: 2px 3px rgba(0, 0, 0, .4);
 }
 
-/* start first card */
+/* start first card day weather */
 
 .day-list{
   display: grid;
@@ -97,4 +97,83 @@
   height: 3.5rem;
 }
 
-/* end first card */
+/* end first card day weather*/
+
+/* second card hour weather*/
+
+.hour-title{
+  display: block;
+  font-size: 1.7rem;
+  padding: 1rem 0 .5rem 1.5rem;
+}
+
+.hour-list{
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-areas: "ba bb bc bd be";
+}
+
+.hour-list-item{
+  display: grid;
+  justify-items: center;
+  font-size: 1.5rem;
+}
+
+.hour-list-item-paragraph{
+  font-size: 1.5rem;
+}
+
+.hour-list-item.ba{
+  grid-area: ba;
+}
+.hour-list-item.ba > .hour-list-item-icon{
+  background-image: url(../assets/img/day/395.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.hour-list-item.bb{
+  grid-area: bb;
+}
+.hour-list-item.bb > .hour-list-item-icon{
+  background-image: url(../assets/img/day/386.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.hour-list-item.bc{
+  grid-area: bc;
+}
+.hour-list-item.bc > .hour-list-item-icon{
+  background-image: url(../assets/img/day/365.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.hour-list-item.bd{
+  grid-area: bd;
+}
+.hour-list-item.bd > .hour-list-item-icon{
+  background-image: url(../assets/img/day/335.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.hour-list-item.be{
+  grid-area: be;
+}
+.hour-list-item.be > .hour-list-item-icon{
+  background-image: url(../assets/img/day/317.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
