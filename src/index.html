@@ -29,20 +29,41 @@
   </nav>
 
   <main class="main">
-    <section class="container-day">
+    <!-- daily weather -->
+    <section class="container-day card">
       <h3 class="day-title">Previsão para os proximos dias</h3>
-      <div class="day-div">
         <ul class="day-list">
-          <li class="day-list-item">
+          <li class="day-list-item a">
             <h5 class="day-list-item-title">Hoje</h5>
             <i class="day-list-item-icon"></i>
-            <p class="day-list-item-paragraph">Graus</p>
+            <p class="day-list-item-paragraph">24*</p>
+          </li>
+          <li class="day-list-item b">
+            <h5 class="day-list-item-title">28/12</h5>
+            <i class="day-list-item-icon"></i>
+            <p class="day-list-item-paragraph">22*</p>
+          </li>
+          <li class="day-list-item c">
+            <h5 class="day-list-item-title">29/12</h5>
+            <i class="day-list-item-icon"></i>
+            <p class="day-list-item-paragraph">25*</p>
+          </li>
+          <li class="day-list-item d">
+            <h5 class="day-list-item-title">30/12</h5>
+            <i class="day-list-item-icon"></i>
+            <p class="day-list-item-paragraph">30*</p>
+          </li>
+          <li class="day-list-item e">
+            <h5 class="day-list-item-title">31/12</h5>
+            <i class="day-list-item-icon"></i>
+            <p class="day-list-item-paragraph">32*</p>
           </li>
         </ul>
-      </div>
     </section>
+    <!-- end daily weather -->
 
-    <section class="container-hours">
+    <!-- per hour weather -->
+    <section class="container-hours card">
       <h3 class="hour-title">Previsao para as proximas horas</h3>
       <div class="hour-div">
         <ul class="hour-list">
@@ -54,8 +75,10 @@
         </ul>
       </div>
     </section>
+    <!-- end per hours weather -->
 
-    <section class="container-local-weather">
+    <!-- local weather -->
+    <section class="container-local-weather card">
       <h3 class="local-title">Clima em Vespasiano hoje</h3>
 
       <div class="local-div-temperature">
@@ -81,7 +104,10 @@
         </span>
       </div>
     </section>
-    <section class="list-info-weather">
+    <!-- end local weather -->
+
+    <!-- list weather details -->
+    <section class="list-info-weather card">
       <table class="aside-table">
         <tbody class="aside-table-body">
           <tr class="aside-table-row-title">
@@ -111,9 +137,12 @@
         </tbody>
       </table>
     </section>
+    <!-- end list weather details -->
   </main>
 
-  <section class="division-bar cold-division-color"></section>
+  <!-- division color bar -->
+  <section class="division-bar hot-division-color"></section>
+  <!-- end division color bar -->
 
   <aside>
     <section>
@@ -127,9 +156,11 @@
       <p class="aside-clouds">Percentual de nuvens no céu</p>
     </section>
   </aside>
+
   <footer class="footer">
     <p class="footer-paragraph">Code & design by Cesar-abj</p>
   </footer>
+
 </body>
 <script src="../js/index.js"></script>
 

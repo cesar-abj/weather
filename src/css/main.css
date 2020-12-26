@@ -1,3 +1,100 @@
+/* style global */
+
 .main{
   grid-area: main;
+  display: grid;
+  grid-template-rows: repeat(4, 21.5%);
+  row-gap: 4%;
 }
+
+/* style for cards */
+
+.card{
+  border: 1px solid black;
+  border-radius: 5px;
+  min-width: 86%;
+  margin: 0 auto;
+  box-shadow: 2px 3px rgba(0, 0, 0, .4);
+}
+
+/* start first card */
+
+.day-list{
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-areas: "a b c d e";
+}
+
+.day-title{
+  display: block;
+  padding: 1rem 0 .5rem 1.5rem;
+  font-size: 1.7rem;
+}
+
+.day-list-item{
+  display: grid;
+  justify-items: center;
+  font-size: 1.5rem;
+}
+
+.day-list-item.a {
+  grid-area: a;
+}
+
+.day-list-item.a > .day-list-item-icon{
+  background-image: url(../assets/img/day/113.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.day-list-item.b{
+  grid-area: b;
+}
+
+.day-list-item.b > .day-list-item-icon{
+  background-image: url(../assets/img/day/116.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.day-list-item.c{
+  grid-area: c;
+}
+
+.day-list-item.c > .day-list-item-icon{
+  background-image: url(../assets/img/day/119.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.day-list-item.d{
+  grid-area: d;
+}
+
+.day-list-item.d > .day-list-item-icon{
+  background-image: url(../assets/img/day/182.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.day-list-item.e{
+  grid-area: e;
+}
+
+.day-list-item.e > .day-list-item-icon{
+  background-image: url(../assets/img/day/302.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+/* end first card */

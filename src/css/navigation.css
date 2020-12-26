@@ -1,8 +1,13 @@
+/* basic style for navigation */
+
 .navigation{
   grid-area: navigation;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
+
+/* logo and title */
 
 .nav-home-link{
   text-decoration: unset;
@@ -26,6 +31,10 @@
   padding-left: 1rem;
 }
 
+/* end logo and title */
+
+/* search and input */
+
 .container-search{
   display: flex;
   align-items: center;
@@ -43,3 +52,5 @@
   font-size: 24px;
   outline-style: none;
 }
+
+/* end search and input */
