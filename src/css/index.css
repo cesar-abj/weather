@@ -3,6 +3,7 @@
   margin: 0px;
   box-sizing: 0px;
   padding: 0px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .body{
@@ -10,9 +11,14 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 60% 2% 38%;
-  height: 97vh;
+  height: 95vh;
   grid-template-rows: 10% 90%;
   grid-template-areas: "navigation division aside"
                        "main division aside"
                        "main division footer";
+}
+
+p {
+  font-weight: bold;
+  font-size: 1.3rem;
 }

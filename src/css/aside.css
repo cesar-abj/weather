@@ -1,3 +1,42 @@
-.aside{
+aside{
   grid-area: aside;
+}
+
+.aside-section{
+  display: flex;
+  flex-direction: column;
+  width: 86%;
+  margin: 0 auto;
+}
+
+.aside-title{
+  font-size: 2.5rem;
+  padding: 3rem 0 .5rem 0;
+}
+
+.aside-date,
+.aside-hour{
+  font-size: 1.4rem;
+  padding-bottom: .5rem;
+}
+
+.aside-greeting{
+  font-size: 1.7rem;
+  padding: 1.5rem 0 1.5rem 0;
+}
+
+.aside-local-weather{
+  font-size: 2.0rem;
+  padding: 1rem 0 1rem 0;
+}
+
+.aside-temperature{
+  font-weight: bold;
+  font-size: 5rem;
+}
+
+.aside-weather-description,
+.aside-clouds{
+  font-size: 1.4rem;
+  padding: .5rem 0 .5rem 0;
 }

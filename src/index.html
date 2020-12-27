@@ -4,9 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/navigation.css">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/main-card-days.css">
+  <link rel="stylesheet" href="./css/main-card-hours.css">
+  <link rel="stylesheet" href="./css/main-card-today.css">
+  <link rel="stylesheet" href="./css/main-card-table.css">
   <link rel="stylesheet" href="./css/division.css">
   <link rel="stylesheet" href="./css/aside.css">
   <link rel="stylesheet" href="./css/footer.css">
@@ -32,30 +38,30 @@
     <!-- daily weather -->
     <section class="container-day card">
       <h3 class="day-title title-cards">Previsão para os proximos dias</h3>
-      <ul class="day-list grid-template-5">
+      <ul class="day-list grid-template-columns-5">
         <li class="day-list-item a">
           <h5 class="day-list-item-title">Hoje</h5>
-          <i class="day-list-item-icon"></i>
+          <i class="day-list-item-icon set-icon"></i>
           <p class="day-list-item-paragraph">24*</p>
         </li>
         <li class="day-list-item b">
           <h5 class="day-list-item-title">28/12</h5>
-          <i class="day-list-item-icon"></i>
+          <i class="day-list-item-icon set-icon"></i>
           <p class="day-list-item-paragraph">22*</p>
         </li>
         <li class="day-list-item c">
           <h5 class="day-list-item-title">29/12</h5>
-          <i class="day-list-item-icon"></i>
+          <i class="day-list-item-icon set-icon"></i>
           <p class="day-list-item-paragraph">25*</p>
         </li>
         <li class="day-list-item d">
           <h5 class="day-list-item-title">30/12</h5>
-          <i class="day-list-item-icon"></i>
+          <i class="day-list-item-icon set-icon"></i>
           <p class="day-list-item-paragraph">30*</p>
         </li>
         <li class="day-list-item e">
           <h5 class="day-list-item-title">31/12</h5>
-          <i class="day-list-item-icon"></i>
+          <i class="day-list-item-icon set-icon"></i>
           <p class="day-list-item-paragraph">32*</p>
         </li>
       </ul>
@@ -64,32 +70,32 @@
 
     <!-- per hour weather -->
     <section class="container-hours card">
-      <h3 class="hour-title title-cards">Previsao para as proximas horas</h3>
-      <ul class="hour-list grid-template-5">
+      <h3 class="hour-title title-cards">Previsão para as proximas horas</h3>
+      <ul class="hour-list grid-template-columns-5">
         <li class="hour-list-item ba">
           <h5 class="hour-list-item-title">Agora</h5>
           <p class="hour-list-item-paragraph">13*</p>
-          <i class="hour-list-item-icon"></i>
+          <i class="hour-list-item-icon set-icon"></i>
         </li>
         <li class="hour-list-item bb">
           <h5 class="hour-list-item-title">18:00</h5>
           <p class="hour-list-item-paragraph">14*</p>
-          <i class="hour-list-item-icon"></i>
+          <i class="hour-list-item-icon set-icon"></i>
         </li>
         <li class="hour-list-item bc">
           <h5 class="hour-list-item-title">19:00</h5>
           <p class="hour-list-item-paragraph">20*</p>
-          <i class="hour-list-item-icon"></i>
+          <i class="hour-list-item-icon set-icon"></i>
         </li>
         <li class="hour-list-item bd">
           <h5 class="hour-list-item-title">20:00</h5>
           <p class="hour-list-item-paragraph">22*</p>
-          <i class="hour-list-item-icon"></i>
+          <i class="hour-list-item-icon set-icon"></i>
         </li>
         <li class="hour-list-item be">
           <h5 class="hour-list-item-title">21:00</h5>
           <p class="hour-list-item-paragraph">17*</p>
-          <i class="hour-list-item-icon"></i>
+          <i class="hour-list-item-icon set-icon"></i>
         </li>
       </ul>
     </section>
@@ -97,29 +103,31 @@
 
     <!-- local weather -->
     <section class="container-local-weather card">
-      <h3 class="local-title">Clima em Vespasiano hoje</h3>
+      <h3 class="local-title title-cards">Clima em Vespasiano hoje</h3>
 
-      <div class="local-div-temperature">
-        <h4 class="local-div-title">24*</h4>
-        <p class="local-div-paragraph">Sensação térmica</p>
-      </div>
+      <div class="container-local-temperature">
 
-      <div class="sunrise-sunset">
-        <span class="sunrise">
-          <i class="sunrise-icon"></i>
-          <p class="sunrise-description">Nascer</p>
-          <p class="sunrise-paragraph">5:36</p>
-        </span>
+        <div class="local-div-temperature">
+          <h4 class="local-div-title">24*</h4>
+          <p class="local-div-paragraph">Sensação térmica</p>
+        </div>
 
-        <span class="time-arrow">
-          <i class="time-arrow-icon"></i>
-        </span>
+        <div class="sunrise-sunset">
+          <div class="sunrise">
+            <i class="sunrise-icon"></i>
+            <p class="sunrise-description">Nascer</p>
+            <p class="sunrise-paragraph">5:36</p>
+          </div>
+          <div class="time-arrow">
+            <i class="time-arrow-icon"></i>
+          </div>
 
-        <span class="sunset">
-          <i class="sunset-icon"></i>
-          <p class="sunset-description">Por do Sol</p>
-          <p class="sunset-paragraph">18:40</p>
-        </span>
+          <div class="sunset">
+            <i class="sunset-icon"></i>
+            <p class="sunset-description">Por do Sol</p>
+            <p class="sunset-paragraph">18:40</p>
+          </div>
+        </div>
       </div>
     </section>
     <!-- end local weather -->
@@ -163,12 +171,12 @@
   <!-- end division color bar -->
 
   <aside>
-    <section>
+    <section class="aside-section">
       <h2 class="aside-title">Vespasiano, MG</h2>
       <span class="aside-date">19/12/2020</span>
       <span class="aside-hour">22:01</span>
       <span class="aside-greeting">Boa Noite!</span>
-      <p>Clima hoje em Vespasiano, Minas Gerais</p>
+      <p class="aside-local-weather">Clima hoje em Vespasiano, Minas Gerais</p>
       <span class="aside-temperature">22°</span>
       <p class="aside-weather-description">Parcialmente nublado</p>
       <p class="aside-clouds">Percentual de nuvens no céu</p>
@@ -176,7 +184,8 @@
   </aside>
 
   <footer class="footer">
-    <p class="footer-paragraph">Code & design by Cesar-abj</p>
+    <p class="footer-paragraph">Code & design by <a class="footer-link" href="https://github.com/cesar-abj"
+        target="_blank">Cesar-abj</a></p>
   </footer>
 
 </body>

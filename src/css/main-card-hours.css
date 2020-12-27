@@ -1,0 +1,47 @@
+/* second card hour weather*/
+
+.hour-list{
+  grid-template-areas: "ba bb bc bd be";
+}
+
+
+.hour-list-item-paragraph{
+  padding: .5rem 0 .2rem 0;
+}
+
+.hour-list-item.ba{
+  grid-area: ba;
+}
+.hour-list-item.ba > .hour-list-item-icon{
+  background-image: url(../assets/img/day/395.png);
+}
+
+.hour-list-item.bb{
+  grid-area: bb;
+}
+.hour-list-item.bb > .hour-list-item-icon{
+  background-image: url(../assets/img/day/386.png);
+}
+
+.hour-list-item.bc{
+  grid-area: bc;
+}
+.hour-list-item.bc > .hour-list-item-icon{
+  background-image: url(../assets/img/day/365.png);
+}
+
+.hour-list-item.bd{
+  grid-area: bd;
+}
+.hour-list-item.bd > .hour-list-item-icon{
+  background-image: url(../assets/img/day/335.png);
+}
+
+.hour-list-item.be{
+  grid-area: be;
+}
+.hour-list-item.be > .hour-list-item-icon{
+  background-image: url(../assets/img/day/317.png);
+}
+
+/* end second card hour weather */

@@ -7,7 +7,7 @@
   row-gap: 4%;
 }
 
-.grid-template-5{
+.grid-template-columns-5{
   display: grid;
   grid-template-columns: repeat(5, 20%);
 }
@@ -18,8 +18,7 @@
   font-size: 1.7rem;
 }
 
-.day-list-item > .day-list-item-icon,
-.hour-list-item > .hour-list-item-icon
+.set-icon
 {
   background-position: center;
   background-repeat: no-repeat;
@@ -34,6 +33,8 @@
   font-size: 1.5rem;
 }
 
+/* end style global */
+
 /* style for cards */
 
 .card{
@@ -44,99 +45,4 @@
   box-shadow: 2px 3px rgba(0, 0, 0, .4);
 }
 
-/* start first card day weather */
-
-.day-list{
-  grid-template-areas: "a b c d e";
-}
-
-.day-list-item.a {
-  grid-area: a;
-}
-
-.day-list-item.a > .day-list-item-icon{
-  background-image: url(../assets/img/day/113.png);
-}
-
-.day-list-item.b{
-  grid-area: b;
-}
-
-.day-list-item.b > .day-list-item-icon{
-  background-image: url(../assets/img/day/116.png);
-}
-
-.day-list-item.c{
-  grid-area: c;
-}
-
-.day-list-item.c > .day-list-item-icon{
-  background-image: url(../assets/img/day/119.png);
-}
-
-.day-list-item.d{
-  grid-area: d;
-}
-
-.day-list-item.d > .day-list-item-icon{
-  background-image: url(../assets/img/day/182.png);
-}
-
-.day-list-item.e{
-  grid-area: e;
-}
-
-.day-list-item.e > .day-list-item-icon{
-  background-image: url(../assets/img/day/302.png);
-}
-
-/* end first card day weather*/
-
-/* second card hour weather*/
-
-.hour-list{
-  grid-template-areas: "ba bb bc bd be";
-}
-
-
-.hour-list-item-paragraph{
-  padding: .5rem 0 .2rem 0;
-  font-size: 1.5rem;
-}
-
-.hour-list-item.ba{
-  grid-area: ba;
-}
-.hour-list-item.ba > .hour-list-item-icon{
-  background-image: url(../assets/img/day/395.png);
-}
-
-.hour-list-item.bb{
-  grid-area: bb;
-}
-.hour-list-item.bb > .hour-list-item-icon{
-  background-image: url(../assets/img/day/386.png);
-}
-
-.hour-list-item.bc{
-  grid-area: bc;
-}
-.hour-list-item.bc > .hour-list-item-icon{
-  background-image: url(../assets/img/day/365.png);
-}
-
-.hour-list-item.bd{
-  grid-area: bd;
-}
-.hour-list-item.bd > .hour-list-item-icon{
-  background-image: url(../assets/img/day/335.png);
-}
-
-.hour-list-item.be{
-  grid-area: be;
-}
-.hour-list-item.be > .hour-list-item-icon{
-  background-image: url(../assets/img/day/317.png);
-}
-
-/* end second card hour weather */
+/* end style for cards */

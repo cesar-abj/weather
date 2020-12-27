@@ -1,4 +1,14 @@
 .footer{
   grid-area: footer;
-  height: 3vh;
+  height: 5vh;
+}
+
+.footer{
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.footer-link{
+  text-decoration: none;
+  color: blue;
 }

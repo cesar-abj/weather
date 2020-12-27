@@ -1,0 +1,82 @@
+/* third card local weather */
+
+.local-div-title{
+  font-size: 3rem;
+}
+
+.local-div-paragraph{
+  font-size: 1.5rem;
+}
+
+.container-local-temperature{
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-areas: "temperature sunset";
+  justify-items: center;
+}
+
+.local-div-temperature{
+  grid-area: temperature;
+}
+
+.sunrise-sunset{
+  grid-area: sunset;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "sunrise arrow sunset";
+  justify-items: center;
+}
+
+.sunrise{
+  grid-area: sunrise;
+}
+
+.sunrise-icon{
+  display: flex;
+  margin: 0 auto;
+  background: url(../assets/img/day/113.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.time-arrow{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.time-arrow-icon{
+  grid-area: arrow;
+  display: flex;
+  margin: 0 auto;
+  background: url(../assets/img/arrow.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.sunset{
+  grid-area: sunset;
+}
+
+.sunset-icon{
+  display: flex;
+  margin: 0 auto;
+  background: url(../assets/img/night/113.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.sunset-paragraph,
+.sunrise-paragraph{
+  text-align: center;
+  padding-top: .5rem;
+}
+
+/* end third card local weather */
