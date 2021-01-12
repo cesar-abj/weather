@@ -7,6 +7,7 @@ import cssNano from 'cssnano'
 import terser from 'gulp-terser'
 import htmlMin from 'gulp-htmlmin'
 import postCss from 'gulp-postcss'
+import imgMin from 'gulp-imagemin'
 
 // dont suport for imports
 const sucrase = require('@sucrase/gulp-plugin')
@@ -15,38 +16,43 @@ const sucrase = require('@sucrase/gulp-plugin')
 bs.create()
 
 // paths
-
-const tsPath = './src/ts/*.ts'
+const tsPath = './src/ts/**/*.ts'
 
 const jsCompiled = './src/js/'
 const jsPath = './src/js/*.js'
 const cssPath = './src/css/*.css'
-// const imgPath = './src/assets/img/'
+const imgPath = './src/assets/img/**/*'
 const htmlPath = './src/*.html'
 
 const jsBuildDest = './dist/js/'
 const htmlBuildDest = './dist/'
 const cssBuildDest = './dist/css/'
-// const imgBuildDest = './dist/assets/img'
-
-
+const imgBuildDest = './dist/assets/img'
 
 // tasks
-const htmlTask = async () =>
-  src(htmlPath)
-    .pipe(htmlMin({ collapseWhitespace:true, removeComments:true }))
-    .pipe(dest(htmlBuildDest))
+const imageTask = async () => {
+  src(imgPath)
+    .pipe(imgMin())
+    .pipe(dest(imgBuildDest))
+}
 
-const jsTask = async () =>
+const htmlTask = async () => {
+  src(htmlPath)
+    .pipe(htmlMin({ collapseWhitespace: true, removeComments: true }))
+    .pipe(dest(htmlBuildDest))
+}
+
+const jsTask = async () => {
   src(jsPath)
     .pipe(terser())
     .pipe(dest(jsBuildDest))
+}
 
-const cssTask = async () =>
+const cssTask = async () => {
   src(cssPath)
     .pipe(postCss([autoprefix(), cssNano()]))
     .pipe(dest(cssBuildDest))
-
+}
 
 const watchTask = () => {
   bs.init({
@@ -57,20 +63,18 @@ const watchTask = () => {
 
   watch(tsPath).on('change', tsCompile)
   watch([jsPath, cssPath, htmlPath]).on('change', () => {
-    htmlTask()
-    cssTask()
-    jsTask()
     bs.reload()
   })
 }
 
-const tsCompile = async () =>
+const tsCompile = async () => {
   src(tsPath)
-    .pipe(sucrase({ transforms: ['typescript', 'imports'] }))
-    .pipe(dest(jsCompiled))
+  .pipe(sucrase({ transforms: ["typescript"] }))
+  .pipe(dest(jsCompiled))
+}
 
 // export tasks
-exports.default = parallel(tsCompile, htmlTask, cssTask, jsTask)
+exports.default = parallel(tsCompile, htmlTask, cssTask, jsTask, imageTask)
 exports.watch = watchTask
 exports.ts = tsCompile
 exports.css = cssTask
