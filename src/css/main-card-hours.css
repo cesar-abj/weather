@@ -1,7 +1,7 @@
 /* second card hour weather*/
 
 .hour-list{
-  grid-template-areas: "ba bb bc bd be";
+  grid-template-areas: ". ba . bb . bc .";
 }
 
 
@@ -29,19 +29,4 @@
 .hour-list-item.bc > .hour-list-item-icon{
   background-image: url(../assets/img/day/365.png);
 }
-
-.hour-list-item.bd{
-  grid-area: bd;
-}
-.hour-list-item.bd > .hour-list-item-icon{
-  background-image: url(../assets/img/day/335.png);
-}
-
-.hour-list-item.be{
-  grid-area: be;
-}
-.hour-list-item.be > .hour-list-item-icon{
-  background-image: url(../assets/img/day/317.png);
-}
-
 /* end second card hour weather */

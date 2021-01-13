@@ -1,47 +1,19 @@
 /* start first card day weather */
 
 .day-list{
-  grid-template-areas: "a b c d e";
+  grid-template-areas: ". a . b . c .";
 }
 
-.day-list-item.a {
+.day-list-item.a0 {
   grid-area: a;
 }
 
-.day-list-item.a > .day-list-item-icon{
-  background-image: url(../assets/img/day/113.png);
-}
-
-.day-list-item.b{
+.day-list-item.a1{
   grid-area: b;
 }
 
-.day-list-item.b > .day-list-item-icon{
-  background-image: url(../assets/img/day/116.png);
-}
-
-.day-list-item.c{
+.day-list-item.a2{
   grid-area: c;
-}
-
-.day-list-item.c > .day-list-item-icon{
-  background-image: url(../assets/img/day/119.png);
-}
-
-.day-list-item.d{
-  grid-area: d;
-}
-
-.day-list-item.d > .day-list-item-icon{
-  background-image: url(../assets/img/day/182.png);
-}
-
-.day-list-item.e{
-  grid-area: e;
-}
-
-.day-list-item.e > .day-list-item-icon{
-  background-image: url(../assets/img/day/302.png);
 }
 
 /* end first card day weather*/

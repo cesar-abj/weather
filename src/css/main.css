@@ -7,9 +7,9 @@
   row-gap: 4%;
 }
 
-.grid-template-columns-5{
+.grid-template-columns-7{
   display: grid;
-  grid-template-columns: repeat(5, 20%);
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .title-cards{
@@ -18,12 +18,12 @@
   font-size: 1.7rem;
 }
 
-.set-icon
-{
+.set-icon{
   background-position: center;
   background-repeat: no-repeat;
   width: 3.5rem;
   height: 3.5rem;
+  outline: red;
 }
 
 .day-list-item,
@@ -31,6 +31,10 @@
   display: grid;
   justify-items: center;
   font-size: 1.5rem;
+}
+
+.day-list-item-paragraph{
+  padding-top: .5rem;
 }
 
 /* end style global */

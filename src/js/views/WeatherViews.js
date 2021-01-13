@@ -1,11 +1,7 @@
 export default class WeatherViews{
-  
-  
-
   setInnerHtmlOfElement(element, weatherContent){
     element.innerHTML = weatherContent;
   };
-
   
   getGreeting(param){
     const greetHour = new Date(param).getHours();
