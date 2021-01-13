@@ -1,5 +1,5 @@
 export default class ElementsHtml{
-  readonly el = document.querySelector.bind(document)
+  readonly el = document.querySelector.bind(document);
 
   // aside elements
   readonly asideTitle = this.el('.aside-title') as HTMLTitleElement;

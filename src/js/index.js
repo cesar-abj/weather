@@ -3,7 +3,7 @@ import View from './views/WeatherViews.js';
 export default class Index {
   
    __init() {this.instanceView = new View()}
-  
+
    __init2() {this.el = document.querySelector.bind(document)}
    __init3() {this.containerSearch = this.el('.container-search') }
    __init4() {this.searchInputElement = this.el('.nav-search-input') }
@@ -22,20 +22,20 @@ export default class Index {
     this.instanceController = new Controller(this.url);
 
     this.containerSearch.addEventListener('submit', event => {
+
       event.preventDefault();
       this.getRequestWeather(this.searchInputElement.value);
-      this.instanceView.setColorBar
+      this.instanceView.setColorBar;
       this.searchInputElement.value = '';
-    })
+    });
   }
 
   getRequestWeather(value){
 
     this.objectURL.locationParam = `q=${value}`;
-    const newUrl = `${this.objectURL.baseURL}${this.objectURL.method}?${this.objectURL.key}&${this.objectURL.locationParam}&${this.objectURL.language}`
-    this.instanceController = new Controller(newUrl)
-    
-  }
-}
+    const newUrl = `${this.objectURL.baseURL}${this.objectURL.method}?${this.objectURL.key}&${this.objectURL.locationParam}&${this.objectURL.language}`;
+    this.instanceController = new Controller(newUrl);  
+  };
+};
 
 const instanceIndex = new Index();
