@@ -1,30 +1,35 @@
 import Api from '../api/Api.js';
-import ElementsHtml from '../elements-html/ElementsHtml.js';
-import WeatherViews from '../views/WeatherViews.js';
 import DateHelper from '../helpers/DateHelper.js';
+import MethodsController from '../controllers/MethodsController.js';
 
-export default class WeatherController {
+export default class WeatherController extends MethodsController {
 
   // class instances
    __init() {this.api = new Api()}
-   __init2() {this.weatherViews = new WeatherViews()}
-   __init3() {this.elementsHtml = new ElementsHtml()}
-   __init4() {this.date = new DateHelper()}
+   __init2() {this.date = new DateHelper()}
 
-  // declaration shortcuts
-   __init5() {this.setInnerHTML = this.weatherViews.setInnerHtmlOfElement.bind(document)}
-   __init6() {this.setColorBar = this.weatherViews.setColorBar.bind(document)}
-
-  constructor(url) {;WeatherController.prototype.__init.call(this);WeatherController.prototype.__init2.call(this);WeatherController.prototype.__init3.call(this);WeatherController.prototype.__init4.call(this);WeatherController.prototype.__init5.call(this);WeatherController.prototype.__init6.call(this);
+  constructor(url) {
+    super();WeatherController.prototype.__init.call(this);WeatherController.prototype.__init2.call(this);;
 
     this.api.fetchApi(url).then(data => {
-      
-      this.clearElements();
+
+      this.clearElements([
+        this.elementsHtml.dayList,
+        this.elementsHtml.hourList,
+        this.elementsHtml.tableMaxMin,          
+        this.elementsHtml.tableHumidity,          
+        this.elementsHtml.tableAirPressure,          
+        this.elementsHtml.tableUV,          
+        this.elementsHtml.tableWindVel,          
+        this.elementsHtml.tableVisibility,          
+        this.elementsHtml.tableMoonPhase,            
+        this.elementsHtml.tableLatLong,            
+      ]);
       // set elements views
       // Aside elements
       this.setInnerHTML(this.elementsHtml.asideTitle, this.getWeatherTitle(data.location.country));
-      this.setInnerHTML(this.elementsHtml.asideDate, this.date.getDate(data.location.localtime));
-      this.setInnerHTML(this.elementsHtml.asideHour, this.date.getTime(data.location.localtime));
+      this.setInnerHTML(this.elementsHtml.asideDate, this.date.getLocalDate(data.location.localtime));
+      this.setInnerHTML(this.elementsHtml.asideHour, this.date.getLocalTime(data.location.localtime));
       this.setInnerHTML(this.elementsHtml.asideGreeting, this.weatherViews.getGreeting(data.location.localtime));
       this.setInnerHTML(this.elementsHtml.asideLocalWeather, this.getAsideLocalWeather(data.location.name, data.location.region))
       this.setInnerHTML(this.elementsHtml.asideTemperature, this.getTemperature(data.current.temp_c));
@@ -41,85 +46,51 @@ export default class WeatherController {
       data.forecast.forecastday.map((item, index) => {
         this.elementsHtml.dayList.appendChild(
           this.createElementUlist(
-            index,
+            this.createDayListItem(index),
             this.createDayListItemTitle(this.date.getDateWithoutYear(item.date)),
             this.createDayListItemImage(item.day.condition.icon),
             this.createDayListItemParagraph(item.day.avgtemp_c)
           )
         );
-      }
-      );
+      });
       // End daily card component
+
+      // Hour card component
+      this.getSliceOfArray(data.forecast.forecastday[0].hour).map((item, index) => {
+        this.elementsHtml.hourList.appendChild(
+          this.createElementUlist(
+            this.createHourListItem(index),
+            this.createHourListItemTitle(this.date.getHour(item.time)),
+            this.createHourListItemImage(item.condition.icon),
+            this.createHourListItemParagraph(item.temp_c)
+          )
+        );
+      })
+      // end hour card component
+
+      // local weather card component
+      this.setInnerHTML(this.elementsHtml.localTitle, this.getlocalTitle(data.location.name));
+      this.setInnerHTML(this.elementsHtml.localDivTitle, this.getThermicSensation(data.current.feelslike_c));
+      this.setInnerHTML(this.elementsHtml.sunriseParagraph, this.getSunTimeOn(data.forecast.forecastday[0].astro.sunrise));
+      this.setInnerHTML(this.elementsHtml.sunsetParagraph, this.getSunTimeOn(data.forecast.forecastday[0].astro.sunset));
+      // end local weather card component
+
+      // table component
+      this.setInnerHTML(this.elementsHtml.tableMaxMin, this.getMinMax(data.forecast.forecastday[0].day.maxtemp_c, data.forecast.forecastday[0].day.mintemp_c));
+      this.setInnerHTML(this.elementsHtml.tableHumidity, this.getHumidity(data.current.humidity));
+      this.setInnerHTML(this.elementsHtml.tableAirPressure, this.getAirPressure(data.current.pressure_mb));
+      this.setInnerHTML(this.elementsHtml.tableUV, this.getUV(data.current.uv));
+      this.setInnerHTML(this.elementsHtml.tableWindVel, this.getWindVel(data.current.wind_mph));
+      this.setInnerHTML(this.elementsHtml.tableVisibility, this.getVisibility(data.current.vis_km));
+      this.setInnerHTML(this.elementsHtml.tableMoonPhase, this.getMoonPhase(data.forecast.forecastday[0].astro.moon_phase));
+      this.setInnerHTML(this.elementsHtml.tableLatLong, this.getLatLong(data.location.lat, data.location.lon));
+      // end table component
+    })
+    .catch(() => {
+      setTimeout(() => {
+        this.elementsHtml.asideTitle.innerHTML = 'Não encontrado :/, tente novamente.'
+      }, 1000)
     });
   }
 
-   clearElements() {
-    this.elementsHtml.dayList.innerHTML = '';
-  };
-
-   createElementUlist(index, headingElement, imgElement, paragraph) {
-    let newList = this.createDayListItem(index);
-    newList.appendChild(headingElement);
-    newList.appendChild(imgElement);
-    newList.appendChild(paragraph);
-    return newList;
-  };
-
-   getWeatherTitle(country) {
-    switch (country) {
-      case "Brazil":
-        return "Brasil";
-      default:
-        return country;
-    };
-  };
-
-   getAsideRainChance(rainChance){
-    return `Percentual de chance que chova ${rainChance}%`
-  };
-
-   getAsideLocalWeather(name, region) {
-    return `Clima hoje em ${name}, ${region}`;
-  }
-
-   getTemperature(temperature) {
-    return `${temperature}°`;
-  };
-
-   getCurrentCondition(condition) {
-    return condition;
-  };
-
-   getCloudsPercent(clouds) {
-    return `Percentual de nuvens no céu é de ${clouds}%`
-  }
-
-   createDayListItem(index) {
-    let li = document.createElement('li');
-    li.classList.add(`day-list-item`);
-    li.classList.add(`a${index}`);
-    return li;
-  }
-
-   createDayListItemTitle(titleValue) {
-    let h5 = document.createElement('h5');
-    h5.classList.add(`day-list-item-title`);
-    this.setInnerHTML(h5, titleValue)
-    return h5;
-  }
-
-   createDayListItemImage(atributeValue) {
-    let img = document.createElement('img')
-    img.classList.add(`day-list-item-img`);
-    img.classList.add(`set-icon`);
-    img.setAttribute('src', atributeValue)
-    return img;
-  }
-
-   createDayListItemParagraph(paragraphValue) {
-    let paragraph = document.createElement('p');
-    paragraph.classList.add('day-list-item-paragraph');
-    this.setInnerHTML(paragraph, `${paragraphValue}°`)
-    return paragraph;
-  };
 };

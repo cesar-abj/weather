@@ -36,7 +36,7 @@
 .sunrise-icon{
   display: flex;
   margin: 0 auto;
-  background: url(../assets/img/day/113.png);
+  background: url(../assets/img/113.png);
   background-repeat: no-repeat;
   background-position: center;
   height: 2.5rem;
@@ -68,7 +68,7 @@
 .sunset-icon{
   display: flex;
   margin: 0 auto;
-  background: url(../assets/img/night/113.png);
+  background: url(../assets/img/112.png);
   background-repeat: no-repeat;
   background-position: center;
   height: 2.5rem;

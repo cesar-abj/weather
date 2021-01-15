@@ -14,9 +14,9 @@ export default class DateHelper{
     };
   };
 
-  getDate(dateParam: Date): string{
+  getLocalDate(dateLocalParam: Date): string{
     
-    let date = new Date(dateParam);
+    let date = new Date(dateLocalParam);
     let day = `${date.getDate() < 10 ? '0' : ''}${date.getDate()}`;
     let month = `${(date.getMonth() + 1) < 10 ? '0' : ''}${date.getMonth() + 1}`;
     let year = date.getFullYear();
@@ -24,12 +24,19 @@ export default class DateHelper{
     return `${day}/${month}/${year}`;
   };
 
-  getTime(timeParam: Date): string{
+  getLocalTime(timeLocalParam: Date): string{
 
-    const time = new Date(timeParam);
+    const time = new Date(timeLocalParam);
     let hours = time.getHours();
     let minutes = `${time.getMinutes() < 10 ? '0' : ''}${time.getMinutes()}`;
 
     return `${hours}:${minutes} - Horário local`;
+  };
+
+  getHour(hourParam: Date): string{
+    let time = new Date(hourParam);
+    let hours = time.getHours();
+    let minutes = `${time.getMinutes() < 10 ? '0' : ''}${time.getMinutes()}`;
+    return `${hours}:${minutes}`;
   };
 };

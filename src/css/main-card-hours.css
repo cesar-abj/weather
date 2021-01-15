@@ -4,29 +4,19 @@
   grid-template-areas: ". ba . bb . bc .";
 }
 
-
 .hour-list-item-paragraph{
   padding: .5rem 0 .2rem 0;
 }
 
-.hour-list-item.ba{
+.hour-list-item.b0{
   grid-area: ba;
 }
-.hour-list-item.ba > .hour-list-item-icon{
-  background-image: url(../assets/img/day/395.png);
-}
 
-.hour-list-item.bb{
+.hour-list-item.b1{
   grid-area: bb;
 }
-.hour-list-item.bb > .hour-list-item-icon{
-  background-image: url(../assets/img/day/386.png);
-}
 
-.hour-list-item.bc{
+.hour-list-item.b2{
   grid-area: bc;
-}
-.hour-list-item.bc > .hour-list-item-icon{
-  background-image: url(../assets/img/day/365.png);
 }
 /* end second card hour weather */

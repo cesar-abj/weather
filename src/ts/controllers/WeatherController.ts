@@ -1,30 +1,35 @@
 import Api from '../api/Api.js';
-import ElementsHtml from '../elements-html/ElementsHtml.js';
-import WeatherViews from '../views/WeatherViews.js';
 import DateHelper from '../helpers/DateHelper.js';
+import MethodsController from '../controllers/MethodsController.js';
 
-export default class WeatherController {
+export default class WeatherController extends MethodsController {
 
   // class instances
   private api = new Api();
-  private weatherViews = new WeatherViews();
-  private elementsHtml = new ElementsHtml();
   readonly date = new DateHelper();
 
-  // declaration shortcuts
-  readonly setInnerHTML = this.weatherViews.setInnerHtmlOfElement.bind(document);
-  readonly setColorBar = this.weatherViews.setColorBar.bind(document);
-
   constructor(url: string) {
+    super();
 
     this.api.fetchApi(url).then(data => {
-      
-      this.clearElements();
+
+      this.clearElements([
+        this.elementsHtml.dayList,
+        this.elementsHtml.hourList,
+        this.elementsHtml.tableMaxMin,          
+        this.elementsHtml.tableHumidity,          
+        this.elementsHtml.tableAirPressure,          
+        this.elementsHtml.tableUV,          
+        this.elementsHtml.tableWindVel,          
+        this.elementsHtml.tableVisibility,          
+        this.elementsHtml.tableMoonPhase,            
+        this.elementsHtml.tableLatLong,            
+      ]);
       // set elements views
       // Aside elements
       this.setInnerHTML(this.elementsHtml.asideTitle, this.getWeatherTitle(data.location.country));
-      this.setInnerHTML(this.elementsHtml.asideDate, this.date.getDate(data.location.localtime));
-      this.setInnerHTML(this.elementsHtml.asideHour, this.date.getTime(data.location.localtime));
+      this.setInnerHTML(this.elementsHtml.asideDate, this.date.getLocalDate(data.location.localtime));
+      this.setInnerHTML(this.elementsHtml.asideHour, this.date.getLocalTime(data.location.localtime));
       this.setInnerHTML(this.elementsHtml.asideGreeting, this.weatherViews.getGreeting(data.location.localtime));
       this.setInnerHTML(this.elementsHtml.asideLocalWeather, this.getAsideLocalWeather(data.location.name, data.location.region))
       this.setInnerHTML(this.elementsHtml.asideTemperature, this.getTemperature(data.current.temp_c));
@@ -38,88 +43,54 @@ export default class WeatherController {
       // End color bar
 
       // Daily card component
-      data.forecast.forecastday.map((item, index: number) => {
+      data.forecast.forecastday.map((item: { date: Date; day: { condition: { icon: string; }; avgtemp_c: string; }; }, index: number) => {
         this.elementsHtml.dayList.appendChild(
           this.createElementUlist(
-            index,
+            this.createDayListItem(index),
             this.createDayListItemTitle(this.date.getDateWithoutYear(item.date)),
             this.createDayListItemImage(item.day.condition.icon),
             this.createDayListItemParagraph(item.day.avgtemp_c)
           )
         );
-      }
-      );
+      });
       // End daily card component
+
+      // Hour card component
+      this.getSliceOfArray(data.forecast.forecastday[0].hour).map((item: { time: Date; condition: { icon: string; }; temp_c: string; }, index: number) => {
+        this.elementsHtml.hourList.appendChild(
+          this.createElementUlist(
+            this.createHourListItem(index),
+            this.createHourListItemTitle(this.date.getHour(item.time)),
+            this.createHourListItemImage(item.condition.icon),
+            this.createHourListItemParagraph(item.temp_c)
+          )
+        );
+      })
+      // end hour card component
+
+      // local weather card component
+      this.setInnerHTML(this.elementsHtml.localTitle, this.getlocalTitle(data.location.name));
+      this.setInnerHTML(this.elementsHtml.localDivTitle, this.getThermicSensation(data.current.feelslike_c));
+      this.setInnerHTML(this.elementsHtml.sunriseParagraph, this.getSunTimeOn(data.forecast.forecastday[0].astro.sunrise));
+      this.setInnerHTML(this.elementsHtml.sunsetParagraph, this.getSunTimeOn(data.forecast.forecastday[0].astro.sunset));
+      // end local weather card component
+
+      // table component
+      this.setInnerHTML(this.elementsHtml.tableMaxMin, this.getMinMax(data.forecast.forecastday[0].day.maxtemp_c, data.forecast.forecastday[0].day.mintemp_c));
+      this.setInnerHTML(this.elementsHtml.tableHumidity, this.getHumidity(data.current.humidity));
+      this.setInnerHTML(this.elementsHtml.tableAirPressure, this.getAirPressure(data.current.pressure_mb));
+      this.setInnerHTML(this.elementsHtml.tableUV, this.getUV(data.current.uv));
+      this.setInnerHTML(this.elementsHtml.tableWindVel, this.getWindVel(data.current.wind_mph));
+      this.setInnerHTML(this.elementsHtml.tableVisibility, this.getVisibility(data.current.vis_km));
+      this.setInnerHTML(this.elementsHtml.tableMoonPhase, this.getMoonPhase(data.forecast.forecastday[0].astro.moon_phase));
+      this.setInnerHTML(this.elementsHtml.tableLatLong, this.getLatLong(data.location.lat, data.location.lon));
+      // end table component
+    })
+    .catch(() => {
+      setTimeout(() => {
+        this.elementsHtml.asideTitle.innerHTML = 'Não encontrado :/, tente novamente.'
+      }, 1000)
     });
   };
 
-  private clearElements() {
-    this.elementsHtml.dayList.innerHTML = '';
-  };
-
-  private createElementUlist(index: number, headingElement: HTMLHeadingElement, imgElement: HTMLImageElement, paragraph: HTMLParagraphElement): HTMLLIElement {
-    let newList = this.createDayListItem(index);
-    newList.appendChild(headingElement);
-    newList.appendChild(imgElement);
-    newList.appendChild(paragraph);
-    return newList;
-  };
-
-  private getWeatherTitle(country: string) {
-    switch (country) {
-      case "Brazil":
-        return "Brasil";
-      default:
-        return country;
-    };
-  };
-
-  private getAsideRainChance(rainChance: string): string{
-    return `Percentual de chance que chova ${rainChance}%`
-  };
-
-  private getAsideLocalWeather(name: string, region: string): string {
-    return `Clima hoje em ${name}, ${region}`;
-  }
-
-  private getTemperature(temperature: string): string {
-    return `${temperature}°`;
-  };
-
-  private getCurrentCondition(condition: string): string {
-    return condition;
-  };
-
-  private getCloudsPercent(clouds: string): string {
-    return `Percentual de nuvens no céu é de ${clouds}%`
-  }
-
-  private createDayListItem(index: number): HTMLLIElement {
-    let li = document.createElement('li');
-    li.classList.add(`day-list-item`);
-    li.classList.add(`a${index}`);
-    return li;
-  }
-
-  private createDayListItemTitle(titleValue: string): HTMLHeadingElement {
-    let h5 = document.createElement('h5');
-    h5.classList.add(`day-list-item-title`);
-    this.setInnerHTML(h5, titleValue)
-    return h5;
-  }
-
-  private createDayListItemImage(atributeValue: string): HTMLImageElement {
-    let img = document.createElement('img')
-    img.classList.add(`day-list-item-img`);
-    img.classList.add(`set-icon`);
-    img.setAttribute('src', atributeValue)
-    return img;
-  }
-
-  private createDayListItemParagraph(paragraphValue: string): HTMLParagraphElement {
-    let paragraph = document.createElement('p');
-    paragraph.classList.add('day-list-item-paragraph');
-    this.setInnerHTML(paragraph, `${paragraphValue}°`)
-    return paragraph;
-  };
 };
