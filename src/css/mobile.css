@@ -1,0 +1,91 @@
+@media only screen and (max-width: 768px) {
+
+  .body{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'navigation' 'division-bar' 'aside' 'main' 'footer';
+    place-items: center;
+    height: 100%;
+  }
+
+  /* navigation */
+  .navigation{
+    grid-area: navigation;
+    display: inline;
+  }
+
+  /* end navigation */
+
+  /* main content */
+  .main{
+    grid-area: main;
+    display: inline;
+  }
+
+  .card * p{
+    font-size: 80%;
+  }
+
+  .container-day,
+  .container-hours,
+  .container-local-weather,
+  .list-info-weather{
+    margin: 0 .5rem 1rem .5rem;
+  }
+
+  .day-list-item-paragraph,
+  .hour-list-item-paragraph{
+    padding-bottom: 1rem;
+  }
+
+  .local-div-paragraph{
+    text-align: center;
+  }
+
+  .table{
+    padding: .5rem;
+  }
+  /* end main content */
+
+  /* aside content */
+  .aside{
+    grid-area: aside;
+  }
+
+  .aside-title{
+    padding-top: 1rem;
+  }
+
+  .aside-rain-chance{
+    padding-bottom: 1rem;
+  }
+
+  .aside-clouds,
+  .aside-rain-chance{
+    font-size: 120%;
+  }
+
+  /* end aside content */
+
+  /* division bar */
+  .division-bar{
+    margin-top: 1rem;
+    grid-area: division-bar;
+    width: 100%;
+    height: 1rem;
+  }
+
+  .hot-division-color{
+    background-image: linear-gradient(90deg,#FDEE4C, #FDA24C);
+  }
+  
+  .cold-division-color{
+    background-image: linear-gradient(90deg,rgb(44, 213, 224),rgba(36, 118, 237, .8));
+  }
+  /* end division bar */
+
+  .footer{
+    grid-area: footer;
+  }
+}
