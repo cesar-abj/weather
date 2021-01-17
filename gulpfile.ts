@@ -19,7 +19,7 @@ bs.create()
 const tsPath = './src/ts/**/*.ts'
 
 const jsCompiled = './src/js/'
-const jsPath = './src/js/*.js'
+const jsPath = './src/js/**/*.js'
 const cssPath = './src/css/*.css'
 const imgPath = './src/assets/img/**/*'
 const htmlPath = './src/*.html'
@@ -57,7 +57,7 @@ const cssTask = async () => {
 const watchTask = () => {
   bs.init({
     server: {
-      baseDir: './src/'
+      baseDir: './dist/'
     }
   })
 
