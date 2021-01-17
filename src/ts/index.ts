@@ -9,7 +9,7 @@ export default class Index {
   private searchInputElement = this.el('.nav-search-input') as HTMLInputElement;
 
   readonly objectURL = {
-    baseURL: 'http://api.weatherapi.com/v1',
+    baseURL: 'https://api.weatherapi.com/v1',
     method: '/forecast.json',
     key: 'key=82b2553312b843208ae12719200812',
     locationParam: `q=brasil`,

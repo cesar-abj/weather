@@ -9,7 +9,7 @@ export default class Index {
    __init4() {this.searchInputElement = this.el('.nav-search-input') }
 
    __init5() {this.objectURL = {
-    baseURL: 'http://api.weatherapi.com/v1',
+    baseURL: 'https://api.weatherapi.com/v1',
     method: '/forecast.json',
     key: 'key=82b2553312b843208ae12719200812',
     locationParam: `q=brasil`,
