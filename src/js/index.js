@@ -12,7 +12,7 @@ export default class Index {
     baseURL: 'https://api.weatherapi.com/v1',
     method: '/forecast.json',
     key: 'key=82b2553312b843208ae12719200812',
-    locationParam: `q=brasil`,
+    locationParam: 'q=brasil',
     language: 'lang=pt',
     days: 'days=3'
   }}
