@@ -6,4 +6,3 @@ Projeto de uma web page para consulta climatica consumindo uma API gratuita http
 Iniciado com o intuito de praticar minhas habilidades no processo de desenvolvimento para Frontend, consulta de API
 e treinamento de Typescript.
 
-Aplicação já está no ar em https://weatherabjreact.netlify.app/
